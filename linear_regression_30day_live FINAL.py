@@ -60,7 +60,7 @@ df["ma_momentum"] = (df["aud_ma20"] / df["aud_ma50"] - 1).shift(1)  # trend stre
 df["aud_ret1"] = df[target_col].pct_change().shift(1)
 df["aud_ret5"] = df[target_col].pct_change(5).shift(1)
 
-# 6. Cyclical features (less important for daily, but can help)
+
 df["day_of_week"] = df['Date'].dt.dayofweek
 df["month"] = df['Date'].dt.month
 
@@ -125,7 +125,7 @@ def create_daily_model(alpha=1.0, model_type='ridge'):
 X_np = X.to_numpy(dtype=np.float32)
 y_np = y.to_numpy(dtype=np.float32)
 
-# Standardize features (important for linear regression)
+# Standardise features (important for linear regression)
 scaler = StandardScaler()
 
 wf_preds, wf_true, wf_dates = [], [], []
